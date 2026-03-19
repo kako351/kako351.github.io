@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SocialLinks from "./SocialLinks";
 
 export default function Hero() {
@@ -12,8 +13,14 @@ export default function Hero() {
       <div className="relative max-w-4xl mx-auto text-center">
         <div className="animate-fade-in-up">
           <div className="w-28 h-28 mx-auto mb-8 rounded-full bg-gradient-to-br from-accent to-accent-light p-0.5">
-            <div className="w-full h-full rounded-full bg-primary flex items-center justify-center text-4xl">
-              ☕
+            <div className="w-full h-full rounded-full bg-primary overflow-hidden">
+              <Image
+                src="/kako351-icon.png"
+                alt="kako351"
+                width={112}
+                height={112}
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
           </div>
         </div>
