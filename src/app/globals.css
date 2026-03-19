@@ -17,10 +17,21 @@ html {
   scroll-behavior: smooth;
 }
 
+html.light {
+  --color-primary: #f8fafc;
+  --color-surface: #e2e8f0;
+  --color-surface-light: #cbd5e1;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-card-bg: #ffffff;
+  --color-card-border: #e2e8f0;
+}
+
 body {
   background: var(--color-primary);
   color: var(--color-text-primary);
   font-family: var(--font-sans);
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 @keyframes fade-in-up {
