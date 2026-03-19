@@ -15,11 +15,14 @@ const navItems = [
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLight, setIsLight] = useState(false);
+  const [isLight, setIsLight] = useState(true);
 
   useEffect(() => {
     const stored = localStorage.getItem("theme");
-    if (stored === "light") {
+    if (stored === "dark") {
+      document.documentElement.classList.remove("light");
+      setIsLight(false);
+    } else {
       document.documentElement.classList.add("light");
       setIsLight(true);
     }
