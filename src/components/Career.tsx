@@ -4,7 +4,7 @@ const careers = [
   {
     company: "ZOZO",
     role: "Android エンジニア",
-    period: "5年",
+    period: "2年",
     description: "ファッションECプラットフォームのAndroidアプリ開発",
   },
   {
