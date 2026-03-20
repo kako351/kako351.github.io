@@ -17,27 +17,22 @@ export default function Talks() {
   useEffect(() => {
     const fetchTalks = async () => {
       try {
-        // Fetch SpeakerDeck RSS
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
         const res = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://speakerdeck.com/kako351.rss"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://speakerdeck.com/kako351.rss",
+          { signal: controller.signal }
         );
+        clearTimeout(timeout);
         const data = await res.json();
         if (data.status === "ok" && data.items) {
           const talkList: Talk[] = data.items.slice(0, 6).map(
-            (item: { title: string; link: string; pubDate: string; thumbnail?: string; description?: string }) => {
-              // Try to extract image from description
-              let thumbnail = item.thumbnail;
-              if (!thumbnail && item.description) {
-                const match = item.description.match(/src="([^"]+)"/);
-                if (match) thumbnail = match[1];
-              }
-              return {
-                title: item.title,
-                url: item.link,
-                date: item.pubDate,
-                thumbnail,
-              };
-            }
+            (item: { title: string; link: string; pubDate: string; enclosure?: { link?: string } }) => ({
+              title: item.title,
+              url: item.link,
+              date: item.pubDate,
+              thumbnail: item.enclosure?.link,
+            })
           );
           setTalks(talkList);
         }
