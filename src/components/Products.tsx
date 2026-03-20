@@ -99,7 +99,7 @@ function ProductCard({ product }: { product: Product }) {
         <p className="text-xs text-text-secondary mb-3">{product.achievement}</p>
       )}
 
-      <div className="flex flex-col gap-1.5">
+      <div className="flex flex-row gap-3 flex-wrap">
         {product.appStoreUrl && (
           <a
             href={product.appStoreUrl}
