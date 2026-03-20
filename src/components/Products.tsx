@@ -52,9 +52,9 @@ const archivedProducts: Product[] = [
 
 function ProductCard({ product }: { product: Product }) {
   const platformColors: Record<string, string> = {
-    Android: "bg-green-500/10 text-green-400",
-    "iOS / Android": "bg-blue-500/10 text-blue-400",
-    WearOS: "bg-purple-500/10 text-purple-400",
+    Android: "bg-green-200 dark:bg-green-500/10 text-green-700 dark:text-green-400",
+    "iOS / Android": "bg-blue-200 dark:bg-blue-500/10 text-blue-700 dark:text-blue-400",
+    WearOS: "bg-purple-200 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400",
   };
 
   return (
