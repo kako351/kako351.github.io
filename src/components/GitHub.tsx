@@ -13,12 +13,6 @@ interface Repo {
   updated_at: string;
 }
 
-interface GitHubEvent {
-  type: string;
-  repo: { name: string };
-  created_at: string;
-  payload?: Record<string, unknown>;
-}
 
 const languageColors: Record<string, string> = {
   Kotlin: "#A97BFF",
@@ -93,41 +87,20 @@ const skillCategories = [
 
 export default function GitHub() {
   const [repos, setRepos] = useState<Repo[]>([]);
-  const [events, setEvents] = useState<GitHubEvent[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    Promise.all([
-      fetch("https://api.github.com/users/kako351/repos?sort=updated&per_page=6")
-        .then((r) => r.json())
-        .catch(() => []),
-      fetch("https://api.github.com/users/kako351/events/public?per_page=10")
-        .then((r) => r.json())
-        .catch(() => []),
-    ]).then(([repoData, eventData]) => {
-      if (Array.isArray(repoData)) {
-        setRepos(repoData.filter((r: Repo) => !r.fork).slice(0, 6));
-      }
-      if (Array.isArray(eventData)) {
-        setEvents(eventData.slice(0, 5));
-      }
-      setLoading(false);
-    });
+    fetch("https://api.github.com/users/kako351/repos?sort=updated&per_page=20")
+      .then((r) => r.json())
+      .catch(() => [])
+      .then((repoData) => {
+        if (Array.isArray(repoData)) {
+          const excludedRepos = ["kako351.github.io", "survival_typescript_learning"];
+          setRepos(repoData.filter((r: Repo) => !r.fork && !excludedRepos.includes(r.name)).slice(0, 6));
+        }
+        setLoading(false);
+      });
   }, []);
-
-  const formatEventType = (type: string) => {
-    const map: Record<string, string> = {
-      PushEvent: "Pushed to",
-      CreateEvent: "Created",
-      PullRequestEvent: "PR on",
-      IssuesEvent: "Issue on",
-      WatchEvent: "Starred",
-      ForkEvent: "Forked",
-      DeleteEvent: "Deleted in",
-      ReleaseEvent: "Released",
-    };
-    return map[type] || type.replace("Event", "");
-  };
 
   return (
     <section id="github" className="py-20 px-4">
@@ -219,28 +192,6 @@ export default function GitHub() {
           </div>
         )}
 
-        {/* Recent Activity */}
-        {events.length > 0 && (
-          <div className="mt-12">
-            <h3 className="text-xl font-bold text-center mb-8">Recent Activity</h3>
-            <div className="max-w-2xl mx-auto space-y-3">
-              {events.map((event, index) => (
-                <div
-                  key={`${event.type}-${event.created_at}-${index}`}
-                  className="flex items-center gap-3 bg-card-bg border border-card-border rounded-lg px-4 py-3 text-sm"
-                >
-                  <span className="text-accent text-xs font-medium whitespace-nowrap">
-                    {formatEventType(event.type)}
-                  </span>
-                  <span className="text-text-secondary truncate">{event.repo.name}</span>
-                  <span className="text-text-secondary/50 text-xs ml-auto whitespace-nowrap">
-                    {new Date(event.created_at).toLocaleDateString("ja-JP")}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
 
         <div className="text-center mt-8">
           <a
