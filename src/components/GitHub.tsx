@@ -34,22 +34,60 @@ const languageColors: Record<string, string> = {
   Shell: "#89e051",
 };
 
+const skillColors: Record<string, string> = {
+  // Mobile
+  Kotlin: "#A97BFF",
+  Java: "#B07219",
+  Flutter: "#54C5F8",
+  Dart: "#00B4AB",
+  "React Native": "#087EA4",
+  "Jetpack Compose": "#4285F4",
+  // Web
+  TypeScript: "#3178C6",
+  React: "#087EA4",
+  HTML: "#E34F26",
+  CSS: "#1572B6",
+  // Backend / Infra
+  Firebase: "#FFCA28",
+  "GitHub Actions": "#2088FF",
+  CircleCI: "#888888",
+  Supabase: "#3ECF8E",
+  GCP: "#4285F4",
+  BigQuery: "#669DF6",
+  // Tools
+  Git: "#F05032",
+  Figma: "#F24E1E",
+  "Android Studio": "#3DDC84",
+  Github: "#8B949E",
+  "VS Code": "#007ACC",
+  // AI
+  "Claude Code": "#D97757",
+  Codex: "#74AA9C",
+  "Gemini CLI": "#4285F4",
+  "OpenAI API": "#74AA9C",
+  "Atlassian Rovo": "#0052CC",
+};
+
 const skillCategories = [
   {
     name: "Mobile",
-    skills: ["Kotlin", "Java", "Swift", "Flutter", "Dart", "React Native", "Jetpack Compose"],
+    skills: ["Kotlin", "Java", "Flutter", "Dart", "React Native", "Jetpack Compose"],
   },
   {
     name: "Web",
-    skills: ["TypeScript", "React", "Next.js", "HTML", "CSS"],
+    skills: ["TypeScript", "React", "HTML", "CSS"],
   },
   {
     name: "Backend / Infra",
-    skills: ["Firebase", "GitHub Actions", "CircleCI"],
+    skills: ["Firebase", "GitHub Actions", "CircleCI", "Supabase", "GCP", "BigQuery"],
   },
   {
     name: "Tools",
-    skills: ["Git", "Figma", "Android Studio", "Xcode"],
+    skills: ["Git", "Figma", "Android Studio", "Github", "VS Code"],
+  },
+  {
+    name: "AI",
+    skills: ["Claude Code", "Codex", "Gemini CLI", "OpenAI API", "Atlassian Rovo"],
   },
 ];
 
@@ -99,19 +137,27 @@ export default function GitHub() {
         {/* Skill Map */}
         <div className="mb-16">
           <h3 className="text-xl font-bold text-center mb-8">Skill Map</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
             {skillCategories.map((category) => (
               <div key={category.name} className="bg-card-bg border border-card-border rounded-xl p-5">
                 <h4 className="text-sm font-semibold text-accent mb-3">{category.name}</h4>
                 <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="text-xs px-2.5 py-1 bg-surface-light rounded-full text-text-secondary"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {category.skills.map((skill) => {
+                    const color = skillColors[skill];
+                    return (
+                      <span
+                        key={skill}
+                        className="text-xs px-2.5 py-1 rounded-full font-medium"
+                        style={
+                          color
+                            ? { backgroundColor: `${color}22`, color, border: `1px solid ${color}55` }
+                            : { backgroundColor: "var(--surface-light)", color: "var(--text-secondary)" }
+                        }
+                      >
+                        {skill}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             ))}
