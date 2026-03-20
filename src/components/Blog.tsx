@@ -15,21 +15,23 @@ export default function Blog() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Try to fetch RSS via a CORS proxy or fallback to static data
     const fetchBlog = async () => {
       try {
-        // Use an RSS-to-JSON API
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 5000);
         const res = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://kako351.dev/index.xml"
+          "https://api.rss2json.com/v1/api.json?rss_url=https://kako351.dev/feed",
+          { signal: controller.signal }
         );
+        clearTimeout(timeout);
         const data = await res.json();
         if (data.status === "ok" && data.items) {
           const blogPosts: BlogPost[] = data.items.slice(0, 6).map(
-            (item: { title: string; link: string; pubDate: string; thumbnail?: string; enclosure?: { link?: string } }) => ({
+            (item: { title: string; link: string; pubDate: string; enclosure?: { link?: string } }) => ({
               title: item.title,
               url: item.link,
               date: item.pubDate,
-              ogImage: item.thumbnail || item.enclosure?.link,
+              ogImage: item.enclosure?.link,
             })
           );
           setPosts(blogPosts);
@@ -71,7 +73,7 @@ export default function Blog() {
                 rel="noopener noreferrer"
                 className="bg-card-bg border border-card-border rounded-xl overflow-hidden card-hover block"
               >
-                <div className="h-40 bg-surface-light flex items-center justify-center overflow-hidden">
+                <div className="aspect-[1200/630] bg-surface-light flex items-center justify-center overflow-hidden">
                   {post.ogImage ? (
                     <img
                       src={post.ogImage}
@@ -80,11 +82,9 @@ export default function Blog() {
                       loading="lazy"
                     />
                   ) : (
-                    <div className="text-4xl text-text-secondary/20">
-                      <svg className="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                      </svg>
-                    </div>
+                    <svg className="w-12 h-12 text-text-secondary/20" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
                   )}
                 </div>
                 <div className="p-5">
@@ -102,7 +102,7 @@ export default function Blog() {
           </div>
         ) : (
           <div className="text-center text-text-secondary">
-            <p>ブログ記事を読み込み中...</p>
+            <p>記事を取得できませんでした</p>
           </div>
         )}
 
