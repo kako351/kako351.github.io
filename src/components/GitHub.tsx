@@ -201,7 +201,7 @@ export default function GitHub() {
             href="https://github.com/kako351"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-surface border border-card-border rounded-full text-sm text-text-secondary hover:text-accent hover:border-accent transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-primary rounded-full text-sm font-medium hover:opacity-80 transition-opacity"
           >
             View GitHub Profile
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
