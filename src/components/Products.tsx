@@ -76,17 +76,16 @@ function ProductCard({ product }: { product: Product }) {
         )}
       </div>
 
-      {product.iconUrl && (
-        <div className="mb-3">
+      <div className="flex items-center justify-between gap-3 mb-2">
+        <h3 className="text-lg font-bold">{product.name}</h3>
+        {product.iconUrl && (
           <img
             src={product.iconUrl}
             alt={`${product.name} icon`}
-            className="w-16 h-16 rounded-2xl"
+            className="w-14 h-14 rounded-2xl flex-shrink-0"
           />
-        </div>
-      )}
-
-      <h3 className="text-lg font-bold mb-2">{product.name}</h3>
+        )}
+      </div>
       <p className="text-text-secondary text-sm mb-3 flex-1">{product.description}</p>
 
       {product.tech && (
