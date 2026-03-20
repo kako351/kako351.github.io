@@ -49,7 +49,7 @@ export default function Header() {
           </a>
 
           {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav aria-label="メインナビゲーション" className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.href}
@@ -82,7 +82,8 @@ export default function Header() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-text-secondary hover:text-text-primary"
-            aria-label="メニューを開く"
+            aria-label={isOpen ? "メニューを閉じる" : "メニューを開く"}
+            aria-expanded={isOpen}
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               {isOpen ? (
@@ -96,7 +97,7 @@ export default function Header() {
 
         {/* Mobile nav */}
         {isOpen && (
-          <nav className="md:hidden py-4 border-t border-card-border">
+          <nav aria-label="モバイルナビゲーション" className="md:hidden py-4 border-t border-card-border">
             <div className="flex flex-col gap-3">
               {navItems.map((item) => (
                 <a
