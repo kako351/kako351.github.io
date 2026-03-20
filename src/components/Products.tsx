@@ -7,6 +7,7 @@ interface Product {
   tech?: string;
   achievement?: string;
   playStoreUrl?: string;
+  iconUrl?: string;
   isArchived?: boolean;
 }
 
@@ -16,7 +17,8 @@ const activeProducts: Product[] = [
     platform: "Android",
     description: "筆談アプリ",
     achievement: "2万DL以上 / アプリ内課金でマネタイズ",
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.hitudan",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=app.birth.h3",
+    iconUrl: "https://play-lh.googleusercontent.com/sZq-_wGDY_TxFddzrSMs9s3qTmZ9ZWkNgbCNbsQSUaaqw6lZPTi_njI46YimrvdZszY=w128-h128",
   },
   {
     name: "コーヒーコンパス",
@@ -24,18 +26,22 @@ const activeProducts: Product[] = [
     description: "SNSライクなコーヒー手帳",
     tech: "Flutter",
     achievement: "個人では自身初のリリースしたiOSアプリ",
+    iconUrl: "https://play-lh.googleusercontent.com/g-2B07D_hqSwBpjuAddTVFKFguu7fGSxiuOmGZiBz46IOeSkJtnn8HOOiq16okeLjLE=w128-h128",
   },
   {
     name: "無音カメラ: 静かにトレルンです",
     platform: "Android",
     description: "無音で最高画質のカメラアプリ",
     achievement: "1,000DL以上",
-    playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.silentcamera",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.torerundesu",
+    iconUrl: "https://play-lh.googleusercontent.com/Sp1FCOICTZuZSY2twX1QZh6ORC28P89OxmxvW8VQxa-zWlv9hllM6V1BnGTs5SSKG9IS=w128-h128",
   },
   {
     name: "トイピアノ",
     platform: "WearOS",
     description: "WearOS向けトイピアノアプリ",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.toypiano.wear",
+    iconUrl: "https://play-lh.googleusercontent.com/cwmPNf0LA49Io0sLSlXyj8H4-KddTY_eZP-j0dtp6Du8yHO-mMXi95V_6IBamp0OUdYsrcX7ZKraQK5uIJhM_Xg=w128-h128",
   },
 ];
 
@@ -69,6 +75,16 @@ function ProductCard({ product }: { product: Product }) {
           </span>
         )}
       </div>
+
+      {product.iconUrl && (
+        <div className="mb-3">
+          <img
+            src={product.iconUrl}
+            alt={`${product.name} icon`}
+            className="w-16 h-16 rounded-2xl"
+          />
+        </div>
+      )}
 
       <h3 className="text-lg font-bold mb-2">{product.name}</h3>
       <p className="text-text-secondary text-sm mb-3 flex-1">{product.description}</p>
