@@ -2,8 +2,8 @@
 
 @theme {
   --color-primary: #0f172a;
-  --color-accent: #2563eb;
-  --color-accent-light: #60a5fa;
+  --color-accent: #e2e8f0;
+  --color-accent-light: #cbd5e1;
   --color-surface: #1e293b;
   --color-surface-light: #334155;
   --color-text-primary: #f1f5f9;
@@ -19,12 +19,14 @@ html {
 
 html.light {
   --color-primary: #ffffff;
-  --color-surface: #eff6ff;
-  --color-surface-light: #dbeafe;
+  --color-accent: #111827;
+  --color-accent-light: #374151;
+  --color-surface: #f1f5f9;
+  --color-surface-light: #e2e8f0;
   --color-text-primary: #0f172a;
   --color-text-secondary: #4b5563;
-  --color-card-bg: #f8faff;
-  --color-card-border: #bfdbfe;
+  --color-card-bg: #f8fafc;
+  --color-card-border: #cbd5e1;
 }
 
 body {
@@ -51,7 +53,7 @@ body {
 }
 .card-hover:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
   border-color: var(--color-accent);
 }
 
@@ -67,3 +69,4 @@ body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
