@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Career from "@/components/Career";
 import Products from "@/components/Products";
 import GitHub from "@/components/GitHub";
@@ -15,6 +16,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <About />
         <Career />
         <Products />
         <GitHub />

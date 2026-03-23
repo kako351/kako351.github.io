@@ -8,6 +8,11 @@ const careers = [
     start: "2024",
     end: null,
     description: "ファッションECプラットフォームのAndroidアプリ開発",
+    bullets: [
+      "Kotlin / Jetpack Compose を使ったUI実装・機能開発",
+      "大規模ECアプリの設計・改善・コードレビュー",
+      "高頻度リリース環境での品質維持とチーム開発",
+    ],
   },
   {
     company: "おいしい健康",
@@ -16,14 +21,24 @@ const careers = [
     start: "2018",
     end: "2024",
     description: "ヘルスケア・レシピサービスのAndroidアプリ開発",
+    bullets: [
+      "Kotlin移行・Jetpack Compose導入など技術的負債の解消を推進",
+      "レシピ検索・食事記録など主要機能の設計・実装を主導",
+      "CircleCI整備によるCI/CD改善でリリースフロー効率化",
+    ],
   },
   {
     company: "受託開発会社",
     role: "Web・アプリ開発",
-    period: "5年",
+    period: "4年",
     start: "2014",
     end: "2018",
-    description: "様々なクライアントのWebサイト・アプリの企画・開発",
+    description: "多業種クライアントのWebサイト・アプリ企画・開発",
+    bullets: [
+      "医療・小売・ECなど幅広い業種の要件定義〜リリースまで担当",
+      "Android / Webの両方を並行して習得",
+      "プロダクト全体を見渡すフルスタックな視点を身につける",
+    ],
   },
 ];
 
@@ -66,7 +81,15 @@ export default function Career() {
                     </div>
                     <h3 className="text-xl font-bold mb-1">{career.company}</h3>
                     <p className="text-accent text-sm mb-2">{career.role}</p>
-                    <p className="text-text-secondary text-sm">{career.description}</p>
+                    <p className="text-text-secondary text-sm mb-3">{career.description}</p>
+                    <ul className={`space-y-1 ${index % 2 === 0 ? "sm:text-right" : ""}`}>
+                      {career.bullets.map((bullet) => (
+                        <li key={bullet} className="text-xs text-text-secondary flex items-start gap-1.5">
+                          <span className="text-accent mt-0.5 shrink-0">▸</span>
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>

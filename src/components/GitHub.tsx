@@ -64,8 +64,12 @@ const skillColors: Record<string, string> = {
 
 const skillCategories = [
   {
-    name: "Mobile",
-    skills: ["Kotlin", "Java", "Flutter", "Dart", "React Native", "Jetpack Compose"],
+    name: "Android (Primary)",
+    skills: ["Kotlin", "Java", "Jetpack Compose", "Android Studio"],
+  },
+  {
+    name: "Cross Platform",
+    skills: ["Flutter", "Dart", "React Native"],
   },
   {
     name: "Web",
@@ -73,15 +77,11 @@ const skillCategories = [
   },
   {
     name: "Backend / Infra",
-    skills: ["Firebase", "GitHub Actions", "CircleCI", "Supabase", "GCP", "BigQuery"],
+    skills: ["Firebase", "Supabase", "GCP", "BigQuery", "GitHub Actions", "CircleCI"],
   },
   {
-    name: "Tools",
-    skills: ["Git", "Figma", "Android Studio", "Github", "VS Code"],
-  },
-  {
-    name: "AI",
-    skills: ["Claude Code", "Codex", "Gemini CLI", "OpenAI API", "Atlassian Rovo"],
+    name: "AI Tools",
+    skills: ["Claude Code", "OpenAI API", "Gemini CLI", "Atlassian Rovo"],
   },
 ];
 

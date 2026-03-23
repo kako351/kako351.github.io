@@ -40,7 +40,7 @@ export default function Hero() {
 
         <div className="animate-fade-in-up animate-delay-200 flex items-center justify-center gap-3 mb-6">
           <span className="px-3 py-1 text-sm rounded-full border border-card-border text-text-secondary bg-card-bg">
-            App Engineer
+            Android Engineer
           </span>
           <span className="w-1 h-1 rounded-full bg-text-secondary/40" />
           <span className="px-3 py-1 text-sm rounded-full border border-card-border text-text-secondary bg-card-bg">
@@ -52,16 +52,9 @@ export default function Hero() {
           </span>
         </div>
 
-        <p className="animate-fade-in-up animate-delay-200 text-base text-text-secondary mb-8">
-          個人開発プロジェクト{" "}
-          <a
-            href="https://kakoniwa.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-accent hover:text-accent-light transition-colors underline underline-offset-4"
-          >
-            かこの箱庭
-          </a>
+        <p className="animate-fade-in-up animate-delay-200 text-base text-text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
+          Kotlin / Jetpack Compose を得意とするAndroidエンジニアです。<br/>
+          趣味で自家焙煎したコーヒー豆の販売もしています。
         </p>
 
         <div className="animate-fade-in-up animate-delay-300">
