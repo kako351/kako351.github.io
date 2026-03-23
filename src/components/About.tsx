@@ -27,7 +27,7 @@ export default function About() {
             好きなことをプロダクトに変えることを楽しんでいます。
           </p>
           <p className="text-accent font-medium">
-            「日常を少し豊かにする」プロダクトを作ることをミッションとしています。
+            <span className="text-text-primary font-semibold">「テクノロジーの力で、人の生活を豊かにする」</span>プロダクトを作ることをミッションとしています。
           </p>
         </div>
 

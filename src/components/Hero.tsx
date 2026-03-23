@@ -35,7 +35,7 @@ export default function Hero() {
         </div>
 
         <h1 className="animate-fade-in-up animate-delay-100 text-4xl sm:text-6xl font-bold mb-6">
-          <span style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-accent-light))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" } as React.CSSProperties}>日常を少し豊かに</span>
+          <span style={{ background: "linear-gradient(135deg, var(--color-accent), var(--color-accent-light))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" } as React.CSSProperties}>人の生活を豊かに</span>
         </h1>
 
         <div className="animate-fade-in-up animate-delay-200 flex items-center justify-center gap-3 mb-6">

@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "kako351 | App Engineer & Coffee Roaster",
-  description: "日常を少し豊かに。アプリエンジニア、時々コーヒー焙煎士。",
+  description: "人の生活を豊かにする。アプリエンジニア、時々コーヒー焙煎士。",
   openGraph: {
     title: "kako351 | App Engineer & Coffee Roaster",
-    description: "日常を少し豊かに。アプリエンジニア、時々コーヒー焙煎士。",
+    description: "人の生活を豊かにする。アプリエンジニア、時々コーヒー焙煎士。",
     url: "https://kako351.github.io",
     type: "website",
   },
