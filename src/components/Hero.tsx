@@ -63,7 +63,7 @@ export default function Hero() {
 
         <div className="animate-fade-in-up animate-delay-300 mt-12">
           <a
-            href="#career"
+            href="#about"
             className="inline-block text-text-secondary hover:text-accent transition-colors"
             aria-label="下にスクロール"
           >
