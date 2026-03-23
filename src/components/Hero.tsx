@@ -53,7 +53,7 @@ export default function Hero() {
         </div>
 
         <p className="animate-fade-in-up animate-delay-200 text-base text-text-secondary mb-8 max-w-xl mx-auto leading-relaxed">
-          Kotlin / Jetpack Compose を得意とするAndroidエンジニアです。<br/>
+          Kotlin / Jetpack Compose を得意とするAndroid特化のモバイルエンジニアです。<br/>
           趣味で自家焙煎したコーヒー豆の販売もしています。
         </p>
 
