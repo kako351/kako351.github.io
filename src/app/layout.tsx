@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "kako351 | App Engineer & Coffee Roaster",
-  description: "人の生活を豊かにする。アプリエンジニア、時々コーヒー焙煎士。",
+  title: "kako351 | Mobile Engineer、時々コーヒー焙煎士",
+  description: "人の生活を豊かにする。モバイルエンジニア、時々コーヒー焙煎士。",
   openGraph: {
-    title: "kako351 | App Engineer & Coffee Roaster",
-    description: "人の生活を豊かにする。アプリエンジニア、時々コーヒー焙煎士。",
-    url: "https://kako351.github.io",
+    title: "kako351 | Mobile Engineer、時々コーヒー焙煎士",
+    description: "人の生活を豊かにする。モバイルエンジニア、時々コーヒー焙煎士。",
+    url: "https://portfolio.kako351.dev/",
     type: "website",
   },
   twitter: {
