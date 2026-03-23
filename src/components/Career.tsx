@@ -9,9 +9,9 @@ const careers = [
     end: null,
     description: "ファッションECプラットフォームのAndroidアプリ開発",
     bullets: [
-      "Kotlin / Jetpack Compose を使ったUI実装・機能開発",
-      "大規模ECアプリの設計・改善・コードレビュー",
-      "高頻度リリース環境での品質維持とチーム開発",
+      "Kotlin / Jetpack Compose を使ったUI実装・機能開発・コードレビュー",
+      "AIを活用した振り返り支援ツールを導入し、チームの振り返り実施率を78%改善",
+      "AIによるプランニング補助ツールを開発し、開発工数における案件割合を16%向上",
     ],
   },
   {
@@ -22,22 +22,20 @@ const careers = [
     end: "2024",
     description: "ヘルスケア・レシピサービスのAndroidアプリ開発",
     bullets: [
+      "KPI改善プロジェクトに従事し、登録開始率を23.3%向上・登録完了率を16%向上",
       "Kotlin移行・Jetpack Compose導入など技術的負債の解消を推進",
-      "レシピ検索・食事記録など主要機能の設計・実装を主導",
-      "CircleCI整備によるCI/CD改善でリリースフロー効率化",
+      "アレルゲン除外検索・食事記録など主要機能の設計・実装を主導",
     ],
   },
   {
     company: "受託開発会社",
-    role: "Web・アプリ開発",
+    role: "システムエンジニア",
     period: "4年",
     start: "2014",
     end: "2018",
     description: "多業種クライアントのWebサイト・アプリ企画・開発",
     bullets: [
-      "医療・小売・ECなど幅広い業種の要件定義〜リリースまで担当",
-      "Android / Webの両方を並行して習得",
-      "プロダクト全体を見渡すフルスタックな視点を身につける",
+      "SNS・クロスメディアアプリ・BLE連携など多様な領域のアプリを要件定義〜リリースまで一貫して対応",
     ],
   },
 ];
@@ -69,9 +67,9 @@ export default function Career() {
                 </div>
 
                 {/* Content */}
-                <div className={`ml-12 sm:ml-0 sm:w-1/2 ${index % 2 === 0 ? "sm:pr-12 sm:text-right" : "sm:pl-12"}`}>
+                <div className={`ml-12 sm:ml-0 sm:w-1/2 ${index % 2 === 0 ? "sm:pr-12" : "sm:pl-12"}`}>
                   <div className="bg-card-bg border border-card-border rounded-xl p-6 card-hover">
-                    <div className={`flex items-center gap-2 mb-3 ${index % 2 === 0 ? "sm:justify-end" : ""}`}>
+                    <div className="flex items-center gap-2 mb-3">
                       <span className="text-sm font-medium text-text-secondary">
                         {career.start} – {career.end ?? "現在"}
                       </span>
@@ -82,7 +80,7 @@ export default function Career() {
                     <h3 className="text-xl font-bold mb-1">{career.company}</h3>
                     <p className="text-accent text-sm mb-2">{career.role}</p>
                     <p className="text-text-secondary text-sm mb-3">{career.description}</p>
-                    <ul className={`space-y-1 ${index % 2 === 0 ? "sm:text-right" : ""}`}>
+                    <ul className="space-y-1">
                       {career.bullets.map((bullet) => (
                         <li key={bullet} className="text-xs text-text-secondary flex items-start gap-1.5">
                           <span className="text-accent mt-0.5 shrink-0">▸</span>
