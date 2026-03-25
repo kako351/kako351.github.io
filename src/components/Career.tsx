@@ -74,6 +74,17 @@ export default function Career() {
   const selectedCareer = careers.find((c) => c.company === selectedCompany) ?? null;
 
   useEffect(() => {
+    if (!selectedCareer?.details) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, [selectedCareer]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") setSelectedCompany(null);
     };
