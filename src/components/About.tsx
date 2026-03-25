@@ -11,14 +11,13 @@ export default function About() {
             Androidを専門に、エンジニアを<span className="text-text-primary font-semibold">12年</span>。
           </p>
           <p>
-            受託開発を4年、その後はヘルスケア・レシピサービス「おいしい健康」で5年、現在は「ZOZO」でAndroidアプリ開発に従事。
+            受託開発を4年、その後はヘルスケア・レシピサービス「おいしい健康」で5年、現在は「ZOZO」でAndroidアプリ開発に従事。<span className="text-text-primary font-semibold">Kotlin / Jetpack Compose を使ったAndroidアプリ開発</span>を中心に、機能開発、設計、コードレビューまで幅広く担当。
           </p>
           <p>
-            <span className="text-text-primary font-semibold">Kotlin / Jetpack Compose を使ったAndroidアプリ開発</span>を中心に、機能開発、設計、コードレビューまで幅広く担当。
-            個人開発では複数のアプリをリリースし、企画・設計・実装・運営まで一人で回している。最近はクロスプラットフォーム開発を主に触っている。
+            個人開発では複数のアプリをリリースし、企画・設計・実装・運営まで一人で回している。最近はクロスプラットフォーム開発を触っている。
           </p>
           <p>
-            趣味ではコーヒー豆を焙煎していて、「KAKONIWA COFFEE」という形で販売。
+            趣味でコーヒー豆を焙煎していて、「KAKONIWA COFFEE」という形で販売。
             その流れでコーヒー用のアプリも自分で作るなど、好きなことをそのままプロダクトにしていくのが好き。
           </p>
           <p className="text-accent font-medium">

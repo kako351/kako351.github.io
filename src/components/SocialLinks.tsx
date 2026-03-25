@@ -37,7 +37,7 @@ const socials = [
     name: "はてなブログ",
     href: "https://kako351.dev/",
     icon: (
-      <img src="/hatena_blog_logo.svg.png" alt="はてなブログ" className="w-5 h-5 object-contain" />
+      <img src="/hatena_blog_logo.svg.png" alt="はてなブログ" className="w-5 h-5 object-contain hatena-logo" />
     ),
   },
 ];
