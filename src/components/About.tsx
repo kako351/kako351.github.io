@@ -8,26 +8,21 @@ export default function About() {
 
         <div className="space-y-6 text-text-secondary leading-relaxed">
           <p>
-            エンジニアとして<span className="text-text-primary font-semibold">12年のキャリア</span>を持ちます。
+            Androidを専門に、エンジニアを<span className="text-text-primary font-semibold">12年</span>。
           </p>
           <p>
-            受託開発（4年）→ ヘルスケア/レシピサービス「おいしい健康」（5年）→ ファッションEC「ZOZO」（現在）と、
-            多様な業界・スケールのプロダクト開発を経験してきました。
+            受託開発を4年、その後はヘルスケア・レシピサービス「おいしい健康」で5年、現在は「ZOZO」でAndroidアプリ開発に従事。
           </p>
           <p>
-            主な専門は<span className="text-text-primary font-semibold">Kotlin / Jetpack Compose を使ったAndroidアプリ開発</span>です。
-            チームでの機能開発から設計・コードレビューまで、実務の幅広い工程を担当してきました。
+            <span className="text-text-primary font-semibold">Kotlin / Jetpack Compose を使ったAndroidアプリ開発</span>を中心に、機能開発、設計、コードレビューまで幅広く担当。
+            個人開発では複数のアプリをリリースし、企画・設計・実装・運営まで一人で回している。最近はクロスプラットフォーム開発を主に触っている。
           </p>
           <p>
-            個人開発では「ひつだん」（2万DL超）をはじめ複数のアプリをリリース。
-            企画・設計・実装・運営まで一人で完結させる経験が、プロダクト全体を俯瞰する視点につながっています。
-          </p>
-          <p>
-            趣味のコーヒー豆焙煎を販売する「KAKONIWA COFFEE」を運営しており、そのためのコーヒーアプリを自ら作るなど、
-            好きなことをプロダクトに変えることを楽しんでいます。
+            趣味ではコーヒー豆を焙煎していて、「KAKONIWA COFFEE」という形で販売。
+            その流れでコーヒー用のアプリも自分で作るなど、好きなことをそのままプロダクトにしていくのが好き。
           </p>
           <p className="text-accent font-medium">
-            <span className="text-text-primary font-semibold">「テクノロジーの力で、人の生活を豊かにする」</span>プロダクトを作ることをミッションとしています。
+            <span className="text-text-primary font-semibold">「テクノロジーの力で、人の生活を少し豊かにする」</span>が、自分のテーマ。
           </p>
         </div>
 
