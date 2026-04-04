@@ -10,40 +10,67 @@ interface BlogPost {
   ogImage?: string;
 }
 
+const SIMULATE_INITIAL_BLOG_FAILURE = false;
+const INITIAL_BLOG_FAILURE_KEY = "blog-initial-failure-simulated";
+
+async function fetchBlogPosts(): Promise<BlogPost[]> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 5000);
+
+  try {
+    const res = await fetch(
+      "https://api.rss2json.com/v1/api.json?rss_url=https://kako351.dev/feed",
+      { signal: controller.signal }
+    );
+    const data = await res.json();
+
+    if (data.status === "ok" && data.items) {
+      return data.items.slice(0, 6).map(
+        (item: { title: string; link: string; pubDate: string; enclosure?: { link?: string } }) => ({
+          title: item.title,
+          url: item.link,
+          date: item.pubDate,
+          ogImage: item.enclosure?.link,
+        })
+      );
+    }
+
+    return [];
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 export default function Blog() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchBlog = async () => {
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 5000);
-        const res = await fetch(
-          "https://api.rss2json.com/v1/api.json?rss_url=https://kako351.dev/feed",
-          { signal: controller.signal }
-        );
-        clearTimeout(timeout);
-        const data = await res.json();
-        if (data.status === "ok" && data.items) {
-          const blogPosts: BlogPost[] = data.items.slice(0, 6).map(
-            (item: { title: string; link: string; pubDate: string; enclosure?: { link?: string } }) => ({
-              title: item.title,
-              url: item.link,
-              date: item.pubDate,
-              ogImage: item.enclosure?.link,
-            })
-          );
-          setPosts(blogPosts);
-        }
-      } catch {
-        // Fallback: empty
-      } finally {
-        setLoading(false);
-      }
-    };
+  const loadBlog = async () => {
+    setLoading(true);
 
-    fetchBlog();
+    try {
+      if (
+        SIMULATE_INITIAL_BLOG_FAILURE &&
+        typeof window !== "undefined" &&
+        !window.sessionStorage.getItem(INITIAL_BLOG_FAILURE_KEY)
+      ) {
+        window.sessionStorage.setItem(INITIAL_BLOG_FAILURE_KEY, "true");
+        throw new Error("Simulated initial blog fetch failure");
+      }
+
+      const blogPosts = await fetchBlogPosts();
+      setPosts(blogPosts);
+    } catch {
+      setPosts([]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    void loadBlog();
+    // 初回表示時のみ取得する。
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -103,6 +130,13 @@ export default function Blog() {
         ) : (
           <div className="text-center text-text-secondary">
             <p>記事を取得できませんでした</p>
+            <button
+              type="button"
+              onClick={() => void loadBlog()}
+              className="mt-4 inline-flex items-center gap-2 px-5 py-2 border border-card-border rounded-full text-sm font-medium text-text-primary hover:bg-surface-light transition-colors"
+            >
+              再取得する
+            </button>
           </div>
         )}
 
