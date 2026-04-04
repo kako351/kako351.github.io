@@ -8,7 +8,7 @@ export default function About() {
 
         <div className="space-y-6 text-text-secondary leading-relaxed">
           <p>
-            Androidを専門に、エンジニアを<span className="text-text-primary font-semibold">12年</span>。
+            Androidを専門に、エンジニアを<span className="text-text-primary font-semibold">12年</span>。Android開発はKitKatから。
           </p>
           <p>
             受託開発を4年、その後はヘルスケア・レシピサービス「おいしい健康」で5年、現在は「ZOZO」でAndroidアプリ開発に従事。<span className="text-text-primary font-semibold">Kotlin / Jetpack Compose を使ったAndroidアプリ開発</span>を中心に、機能開発、設計、コードレビューまで幅広く担当。
@@ -21,7 +21,7 @@ export default function About() {
             その流れでコーヒー用のアプリも自分で作るなど、好きなことをそのままプロダクトにしていくのが好き。
           </p>
           <p className="text-accent font-medium">
-            <span className="text-text-primary font-semibold">「テクノロジーの力で、人の生活を少し豊かにする」</span>が、自分のテーマ。
+            <span className="text-text-primary font-semibold">「テクノロジーの力で、人の生活を豊かにする」</span>が、自分のテーマ。
           </p>
         </div>
 
