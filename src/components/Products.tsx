@@ -14,6 +14,15 @@ interface Product {
 
 const activeProducts: Product[] = [
   {
+    name: "Roast Lens",
+    platform: "iOS / Android",
+    description: "自家焙煎したコーヒー豆の状態を写真から確認し、焙煎記録を残したい方向けのアプリ。カメラで撮影した焙煎豆をAgtron値で評価。",
+    tech: "React Native, Expo, Firebase",
+    appStoreUrl: "https://apps.apple.com/jp/app/roast-lens/id6761615146",
+    playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.roastlens.android",
+    iconUrl: "/roastlens-logo.png",
+  },
+  {
     name: "ひつだん",
     platform: "Android",
     description: "音声でのコミュニケーションが困難な場面で使える筆談アプリ。シンプルなUIと手描き文字解析・音声再生にこだわり設計。",
@@ -49,9 +58,6 @@ const activeProducts: Product[] = [
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.toypiano.wear",
     iconUrl: "https://play-lh.googleusercontent.com/cwmPNf0LA49Io0sLSlXyj8H4-KddTY_eZP-j0dtp6Du8yHO-mMXi95V_6IBamp0OUdYsrcX7ZKraQK5uIJhM_Xg=w128-h128",
   },
-];
-
-const archivedProducts: Product[] = [
   {
     name: "コーヒー好きのためのコーヒー手帳",
     platform: "Android",
@@ -85,11 +91,13 @@ function ProductCard({ product }: { product: Product }) {
       <div className="flex items-center justify-between gap-3 mb-2">
         <h3 className="text-lg font-bold">{product.name}</h3>
         {product.iconUrl && (
-          <img
-            src={product.iconUrl}
-            alt={`${product.name} icon`}
-            className="w-14 h-14 rounded-2xl flex-shrink-0"
-          />
+          <div className="w-14 h-14 rounded-2xl bg-white p-1.5 flex-shrink-0 shadow-sm">
+            <img
+              src={product.iconUrl}
+              alt={`${product.name} icon`}
+              className="w-full h-full rounded-[14px] object-contain"
+            />
+          </div>
         )}
       </div>
       <p className="text-text-secondary text-sm mb-3 flex-1">{product.description}</p>
@@ -140,19 +148,10 @@ export default function Products() {
       <div className="max-w-6xl mx-auto">
         <SectionHeading title="Products" subtitle="個人プロダクト" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {activeProducts.map((product) => (
             <ProductCard key={product.name} product={product} />
           ))}
-        </div>
-
-        <div className="mt-8">
-          <h3 className="text-lg font-semibold text-text-secondary mb-4 text-center">過去のプロダクト</h3>
-          <div className="max-w-md mx-auto">
-            {archivedProducts.map((product) => (
-              <ProductCard key={product.name} product={product} />
-            ))}
-          </div>
         </div>
 
         <div className="text-center mt-8">
