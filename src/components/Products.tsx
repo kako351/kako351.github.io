@@ -16,7 +16,7 @@ const activeProducts: Product[] = [
   {
     name: "Roast Lens",
     platform: "iOS / Android",
-    description: "自家焙煎したコーヒー豆の状態を写真から確認し、焙煎記録を残したい方向けのアプリ。カメラで撮影した焙煎豆をAgtron値で評価。",
+    description: "自家焙煎したコーヒー豆の状態を写真から確認し、焙煎記録を残したい方向けのアプリ。カメラで撮影した焙煎豆を、Agtron値をもとに評価できる。",
     tech: "React Native, Expo, Firebase",
     appStoreUrl: "https://apps.apple.com/jp/app/roast-lens/id6761615146",
     playStoreUrl: "https://play.google.com/store/apps/details?id=com.kako351.roastlens.android",
